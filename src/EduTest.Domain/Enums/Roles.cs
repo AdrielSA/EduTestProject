@@ -2,7 +2,7 @@
 {
     public enum Roles
     {
-        Adm,
-        Stu
+        Administrator,
+        Student
     }
 }

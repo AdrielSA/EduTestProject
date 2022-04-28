@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace EduTest.API.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "StudentOrAdminRequire")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]

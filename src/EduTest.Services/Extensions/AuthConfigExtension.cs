@@ -36,7 +36,19 @@ namespace EduTest.Services.Extensions
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("AdminRequire", policy =>
-                    policy.RequireRole(nameof(Roles.Adm)));
+                    policy.RequireRole(nameof(Roles.Administrator)));
+            });
+            
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("StudentRequire", policy =>
+                    policy.RequireRole(nameof(Roles.Student)));
+            });
+            
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("StudentOrAdminRequire", policy =>
+                    policy.RequireRole(nameof(Roles.Administrator), nameof(Roles.Student)));
             });
 
             return services;

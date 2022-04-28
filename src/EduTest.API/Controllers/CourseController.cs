@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EduTest.API.Controllers
 {
-    [Authorize(Policy = "AdminRequire")]
+    [Authorize]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
@@ -58,6 +58,7 @@ namespace EduTest.API.Controllers
 
         [HttpPost]
         [Route("add")]
+        [Authorize(Policy = "AdminRequire")]
         public async Task<IActionResult> Add([FromBody] CourseDto course)
         {
             try
@@ -73,6 +74,7 @@ namespace EduTest.API.Controllers
 
         [HttpPut]
         [Route("update/{id}")]
+        [Authorize(Policy = "AdminRequire")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] CourseDto course)
         {
             try
@@ -88,6 +90,7 @@ namespace EduTest.API.Controllers
 
         [HttpDelete]
         [Route("remove/{id}")]
+        [Authorize(Policy = "AdminRequire")]
         public async Task<IActionResult> Remove([FromRoute] int id)
         {
             try

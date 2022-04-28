@@ -12,7 +12,7 @@ namespace EduTest.Infrastructure.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
-        private readonly DbSet<TEntity> _entities;
+        protected readonly DbSet<TEntity> _entities;
 
         public Repository(EduTestDbContext context)
         {
@@ -24,7 +24,7 @@ namespace EduTest.Infrastructure.Repositories
             return await _entities.FindAsync(id);
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> filter = null)
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> filter = null)
         {
 
             return filter != null ?
