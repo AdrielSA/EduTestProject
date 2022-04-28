@@ -59,7 +59,8 @@ namespace EduTest.API.Controllers
             try
             {
                 var student = await _service.GetStudentAsync(id);
-                return Ok(student);
+                var response = new ApiResponse<StudentDto> { Content = student };
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -74,7 +75,8 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.AddStudentAsync(student);
-                return Ok(student);
+                var response = new ApiResponse<StudentDto> { Content = student };
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -89,7 +91,8 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.UpdateStudentAsync(id, student);
-                return Ok(student);
+                var response = new ApiResponse<StudentDto> { Content = student };
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -104,7 +107,7 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.RemoveStudentAsync(id);
-                return Ok(new { Success = true });
+                return Ok(new ApiResponse());
             }
             catch (Exception ex)
             {

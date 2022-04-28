@@ -5,7 +5,7 @@ namespace EduTest.Services.Extensions
 {
     public static class CorsConfigExtension
     {
-        public static IServiceCollection AddCordConfig(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddCorsConfig(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddCors(options =>
             {

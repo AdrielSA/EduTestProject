@@ -1,9 +1,10 @@
-﻿using EduTest.Services.DTOs;
+﻿using EduTest.API.Responses;
+using EduTest.Services.DTOs;
 using EduTest.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,11 +29,11 @@ namespace EduTest.API.Controllers
         {
             try
             {
-                var user = HttpContext.User;
                 var courses = await _service.GetAllCoursesAsync();
                 if (!courses.Any())
                     return NoContent();
-                return Ok(courses);
+                var response = new ApiResponse<IEnumerable<CourseDto>> { Content = courses };
+                return Ok(response);
 
             }
             catch (Exception ex)
@@ -48,7 +49,8 @@ namespace EduTest.API.Controllers
             try
             {
                 var course = await _service.GetCourseAsync(id);
-                return Ok(course);
+                var response = new ApiResponse<CourseDto> { Content = course };
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -64,7 +66,8 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.AddCourseAsync(course);
-                return Ok(course);
+                var response = new ApiResponse<CourseDto> { Content = course };
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -80,7 +83,8 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.UpdateCourseAsync(id, course);
-                return Ok(course);
+                var response = new ApiResponse<CourseDto> { Content = course };
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -96,7 +100,7 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.RemoveCourseAsync(id);
-                return Ok(new { Success = true });
+                return Ok(new ApiResponse());
             }
             catch (Exception ex)
             {

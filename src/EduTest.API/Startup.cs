@@ -23,7 +23,7 @@ namespace EduTest.API
             services.AddIdentityConfig();
             services.AddControllersConfig();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddCordConfig(Configuration);
+            services.AddCorsConfig(Configuration);
             services.AddHttpContextAccessor();
             services.AddDependencies();
             services.AddSwagguerConfig();

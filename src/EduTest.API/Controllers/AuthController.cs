@@ -2,7 +2,6 @@
 using EduTest.Services.DTOs;
 using EduTest.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -29,8 +28,7 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.SignInUser(dto);
-                var response = new ApiResponse { Success = true };
-                return Ok(response);
+                return Ok(new ApiResponse());
             }
             catch (Exception ex)
             {
@@ -45,8 +43,7 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.LogInUser(dto);
-                var response = new ApiResponse { Success = true };
-                return Ok(response);
+                return Ok(new ApiResponse());
             }
             catch (Exception ex)
             {
@@ -61,8 +58,7 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.LogOutUser();
-                var response = new ApiResponse { Success = true };
-                return Ok(response);
+                return Ok(new ApiResponse());
             }
             catch (Exception ex)
             {
@@ -77,8 +73,7 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.RegisterRole(dto);
-                var response = new ApiResponse { Success = true };
-                return Ok(response);
+                return Ok(new ApiResponse());
             }
             catch (Exception ex)
             {

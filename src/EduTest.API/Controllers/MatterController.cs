@@ -1,9 +1,11 @@
-﻿using EduTest.Services.DTOs;
+﻿using EduTest.API.Responses;
+using EduTest.Services.DTOs;
 using EduTest.Services.Interfaces;
 using EduTest.Services.QueryFilters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,7 +33,8 @@ namespace EduTest.API.Controllers
                 var matters = await _service.GetAllMattersAsync(filter);
                 if (!matters.Any())
                     return NoContent();
-                return Ok(matters);
+                var response = new ApiResponse<IEnumerable<MatterDto>> { Content = matters };
+                return Ok(response);
 
             }
             catch (Exception ex)
@@ -47,7 +50,8 @@ namespace EduTest.API.Controllers
             try
             {
                 var matter = await _service.GetMatterAsync(id);
-                return Ok(matter);
+                var response = new ApiResponse<MatterDto> { Content = matter };
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -62,7 +66,8 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.AddMatterAsync(matter);
-                return Ok(matter);
+                var response = new ApiResponse<MatterDto> { Content = matter };
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -77,7 +82,8 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.UpdateMatterAsync(id, matter);
-                return Ok(matter);
+                var response = new ApiResponse<MatterDto> { Content = matter };
+                return Ok(response);
             }
             catch (Exception ex)
             {
@@ -92,7 +98,7 @@ namespace EduTest.API.Controllers
             try
             {
                 await _service.RemoveMatterAsync(id);
-                return Ok(new { Success = true });
+                return Ok(new ApiResponse());
             }
             catch (Exception ex)
             {
