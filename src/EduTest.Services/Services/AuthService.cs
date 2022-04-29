@@ -23,7 +23,7 @@ namespace EduTest.Services.Services
             _roleManager = roleManager;
         }
 
-        public async Task SignInUser(UserDto dto)
+        public async Task SignInUser(RegisterDto dto)
         {
             var user = new IdentityUser
             {
@@ -38,20 +38,14 @@ namespace EduTest.Services.Services
             var roleResult = await _userManager.AddToRoleAsync(user, dto.Role);
             if (!roleResult.Succeeded)
                 throw new ApiException(roleResult.Errors);
-            await LogInUser(dto);
+            await LogInUser(new LoginDto { UserName = dto.UserName, Password = dto.Password }) ;
         }
 
-        public async Task LogInUser(UserDto dto)
+        public async Task LogInUser(LoginDto dto)
         {
             var exist = await _userManager.FindByNameAsync(dto.UserName);
             if (exist == null)
                 throw new ApiException("El usuario NO existe.");
-            var user = new IdentityUser
-            {
-                UserName = dto.UserName,
-                Email = dto.Email,
-                PasswordHash = dto.Password
-            };
             var signInResult = await _signInManager.PasswordSignInAsync(dto.UserName, dto.Password, false, false);
             if (!signInResult.Succeeded)
                 throw new ApiException("Hubo un error");

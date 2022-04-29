@@ -1,5 +1,5 @@
 <template>
-    <div class="container-lg m-5">
+    <div class="container-lg my-5">
         <LoginForm />
     </div>
 </template>

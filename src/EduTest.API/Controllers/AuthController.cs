@@ -22,8 +22,8 @@ namespace EduTest.API.Controllers
         }
 
         [HttpPost]
-        [Route("register")]
-        public async Task<IActionResult> SignIn([FromBody] UserDto dto)
+        [Route("signin")]
+        public async Task<IActionResult> SignIn([FromBody] RegisterDto dto)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace EduTest.API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> LogIn([FromBody] UserDto dto)
+        public async Task<IActionResult> LogIn([FromBody] LoginDto dto)
         {
             try
             {
@@ -66,6 +66,7 @@ namespace EduTest.API.Controllers
             }
         }
 
+        [ApiExplorerSettings(IgnoreApi = true)]
         [HttpPost]
         [Route("addrole")]
         public async Task<IActionResult> AddRole([FromBody] RoleDto dto)

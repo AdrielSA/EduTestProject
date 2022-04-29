@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EduTest.Domain\EduTest.Domain.csproj" />
-    <ProjectReference Include="..\EduTest.Infrastructure\EduTest.Infrastructure.csproj" />
     <ProjectReference Include="..\EduTest.Services\EduTest.Services.csproj" />
   </ItemGroup>
 

@@ -14,7 +14,8 @@ namespace EduTest.Services.Extensions
                     builder
                         .WithOrigins(configuration["Clients:Vue"])
                         .AllowAnyHeader()
-                        .AllowAnyMethod();
+                        .AllowAnyMethod()
+                        .AllowCredentials();
                 });
             });
 

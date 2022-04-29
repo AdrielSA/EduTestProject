@@ -23,7 +23,7 @@ namespace EduTest.API
             services.AddIdentityConfig();
             services.AddControllersConfig();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddCorsConfig(Configuration);
+            //services.AddCorsConfig(Configuration);
             services.AddHttpContextAccessor();
             services.AddDependencies();
             services.AddSwagguerConfig();
@@ -40,7 +40,13 @@ namespace EduTest.API
 
             app.UseHttpsRedirection();
 
-            app.UseCors();
+            //app.UseCors();
+
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials());
 
             app.UseRouting();
 
