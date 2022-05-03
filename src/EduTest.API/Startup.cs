@@ -48,7 +48,7 @@ namespace EduTest.API
                 .SetIsOriginAllowed(origin => true) // allow any origin
                 .AllowCredentials());
 
-            app.UseRouting();
+            app.UseRouting(); 
 
             app.UseAuthentication();
 

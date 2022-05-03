@@ -18,9 +18,9 @@ namespace EduTest.Services.Extensions
             .AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-                //options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                //options.SerializerSettings.Formatting = Formatting.Indented;
-                //options.UseCamelCasing(true);
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                options.SerializerSettings.Formatting = Formatting.Indented;
+                options.UseCamelCasing(true);
             })
             .AddFluentValidation(options =>
             {

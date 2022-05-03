@@ -1,16 +1,19 @@
 <template>
   <div class="home text-center">
-    <HeaderComponent />
-    <h1>Inicio</h1>
+    <HeaderComponentVue />
+    <!-- <h1>Inicio</h1> -->
+    <FooterComponentVue />
   </div>
 </template>
 
 <script>
-import HeaderComponent from '@/components/HeaderComponent.vue'
+import HeaderComponentVue from '@/components/HeaderComponent.vue'
+import FooterComponentVue from '@/components/FooterComponent.vue'
 export default {
   name: 'HomeView',
   components: {
-    HeaderComponent
+    HeaderComponentVue,
+    FooterComponentVue
   }
 }
 </script>

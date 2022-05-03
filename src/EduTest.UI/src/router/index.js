@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import LoginView from '../views/LoginView.vue'
+import StudentsView from '../views/StudentsView.vue'
 
 Vue.use(VueRouter)
 
@@ -8,13 +10,19 @@ const routes = [
   {
     path: '/',
     name: 'login',
-    component: () => import('../views/LoginView.vue'),
+    component: LoginView,
     meta: { requiresAuth: false }
   },
   {
     path: '/home',
     name: 'home',
     component: HomeView,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/students',
+    name: 'students',
+    component: StudentsView,
     meta: { requiresAuth: true }
   }
 ]

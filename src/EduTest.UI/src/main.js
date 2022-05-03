@@ -9,7 +9,9 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import axios from 'axios'
 import VueCookies from 'vue-cookies'
 import VueAxios from 'vue-axios'
+import "bootstrap";
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false

@@ -32,6 +32,11 @@ namespace EduTest.Services.Extensions
                 };
             });
 
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = false;
+            });
+
 
             services.AddAuthorization(options =>
             {
