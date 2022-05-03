@@ -1,6 +1,4 @@
-// const baseUrl = process.env.VUE_APP_URL;
-
-const baseUrl = "https://localhost:5001";
+const baseUrl = process.env.VUE_APP_IIS_SERVER;
 
 const authMethods = {
     login: `${baseUrl}/api/auth/login`,

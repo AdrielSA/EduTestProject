@@ -1,15 +1,20 @@
 <template>
     <div class="container border border-1 p-5">
+        <div v-show="this.error">
+            <div class="alert alert-danger" role="alert">
+                {{errorMsg}}
+            </div>
+        </div>
         <form @submit.prevent="loginMethod">
-            <div class="text-secondary mb-4">
+            <div class="text-center text-secondary mb-4">
                 <h3>Inicio de Sesión</h3>
             </div>
             <div class="form-outline mb-4">
-                <label class="form-label" for="loginUser">Usuario</label>
+                <label class="form-label" for="loginUser">Usuario:</label>
                 <input type="text" id="loginUser" class="form-control" v-model="userName" required />
             </div>
             <div class="form-outline mb-5">
-                <label class="form-label" for="loginPassword">Contraseña</label>
+                <label class="form-label" for="loginPassword">Contraseña:</label>
                 <input type="password" id="loginPassword" class="form-control" v-model="password" required />
             </div>
             <button type="submit" class="btn btn-primary btn-block mb-4">Iniciar Sesión</button>
@@ -38,10 +43,16 @@
                     "password": this.password
                 }
                 axios.post(routes.authMethods.login, json, { withCredentials: true })
-                .then((reponse) => {
-                    console.log(reponse);
+                .then(() => {
+                    localStorage.setItem('isLogged', true);
+                    this.$router.push('/home');
                 }).catch((error) => {
-                    console.log(error);
+                    this.error = true;
+                    if (error.request.status === 400) {
+                        this.errorMsg = "Verificar usuario o contraseña";
+                    }else if(error.request.status === 500){
+                        this.errorMsg = "Verificar Servidor";
+                    }
                 });
             }
         }

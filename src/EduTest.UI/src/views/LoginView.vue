@@ -17,6 +17,6 @@
 <style scoped>
     .container {
         width: 40rem;
-        height: 25rem;
+        height: 30rem;
     }
 </style>
