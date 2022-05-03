@@ -7,11 +7,11 @@ const authMethods = {
 }
 
 const studentMethods = {
-    get: ``,
+    get: `${baseUrl}/api/student/get/`,
     getAll: `${baseUrl}/api/student/getall`,
-    add: ``,
-    update: ``,
-    delete: ``,
+    add: `${baseUrl}/api/student/add`,
+    update: `${baseUrl}/api/student/update/`,
+    delete: `${baseUrl}/api/student/remove/`,
 }
 
 export default {

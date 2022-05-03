@@ -1,5 +1,5 @@
 <template>
-    <footer id="footer" class="flex-shrink-0 py-4 bg-light">
+    <footer id="footer" class="flex-shrink-0 py-4 mt-5 bg-light">
         <div class="container text-center">
             <small>App created with vue and dotnetcore</small>
         </div>
@@ -14,7 +14,8 @@ export default {
 
 <style scoped>
     #footer {
-        position: absolute;
+        position: relative;
+        left: 0;
         bottom: 0;
         width: 100%;
     }

@@ -37,19 +37,18 @@ namespace EduTest.Services.Extensions
                 options.Cookie.HttpOnly = false;
             });
 
-
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("AdminRequire", policy =>
                     policy.RequireRole(nameof(Roles.Administrator)));
             });
-            
+
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("StudentRequire", policy =>
                     policy.RequireRole(nameof(Roles.Student)));
             });
-            
+
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("StudentOrAdminRequire", policy =>
