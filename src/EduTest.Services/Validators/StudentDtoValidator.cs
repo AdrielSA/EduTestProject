@@ -15,7 +15,7 @@ namespace EduTest.Services.Validators
                 .MaximumLength(50).WithMessage("El campo apellidos ha superado la cantidad máxima(50) de caracteres.")
                 .NotEmpty().When(e => e.LastName == null).WithMessage("El campo nombre no puede estar vacio.");
             RuleFor(c => c.DateOfBirth)
-                .Must(c => c >= DateTime.UtcNow).WithMessage("No puede superar la fecha actual");
+                .Must(c => Convert.ToDateTime(c) >= DateTime.UtcNow).WithMessage("No puede superar la fecha actual");
             RuleFor(c => c.Email)
                 .NotEmpty().When(e => e.Email == null).WithMessage("El campo correo no puede estar vacio.")
                 .EmailAddress().WithMessage("Correo inválido.");

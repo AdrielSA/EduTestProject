@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EduTest.Domain.Entities;
 using EduTest.Services.DTOs;
+using System;
 
 namespace EduTest.Services.Mapping
 {
@@ -9,7 +10,9 @@ namespace EduTest.Services.Mapping
         public AutoMapperProfile()
         {
             CreateMap<Student, StudentDto>()
+                .ForMember(e => e.DateOfBirth, c => c.MapFrom(x => x.DateOfBirth.ToString("yyyyy-MM-dd")))
                 .ReverseMap()
+                .ForMember(e => e.DateOfBirth, c => c.MapFrom(x => Convert.ToDateTime(x.DateOfBirth)))
                 .ForMember(p => p.Course, c => c.Ignore())
                 .ForMember(p => p.Matter, c => c.Ignore())
                 .ForMember(p => p.CreationDate, c => c.Ignore())

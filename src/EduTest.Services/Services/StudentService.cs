@@ -105,7 +105,7 @@ namespace EduTest.Services.Services
             entity.MatterId = student.MatterId;
             entity.CourseId = student.CourseId;
             entity.UpdateDate = DateTime.UtcNow;
-            _unitOfWork.StudentRepository.Update(student);
+            _unitOfWork.StudentRepository.Update(entity);
             await _unitOfWork.SaveChangesAsync();
         }
 

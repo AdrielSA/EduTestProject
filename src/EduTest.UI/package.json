@@ -14,6 +14,7 @@
     "bootstrap-vue": "^2.22.0",
     "core-js": "^3.8.3",
     "mdbvue": "^6.7.3",
+    "moment": "^2.29.3",
     "vue": "^2.6.14",
     "vue-axios": "^3.4.1",
     "vue-cookies": "^1.8.1",

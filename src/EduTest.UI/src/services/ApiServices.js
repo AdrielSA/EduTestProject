@@ -14,7 +14,25 @@ const studentMethods = {
     delete: `${baseUrl}/api/student/remove/`,
 }
 
+const courseMethods = {
+    get: `${baseUrl}/api/course/get/`,
+    getAll: `${baseUrl}/api/course/getall`,
+    add: `${baseUrl}/api/course/add`,
+    update: `${baseUrl}/api/course/update/`,
+    delete: `${baseUrl}/api/course/remove/`,
+}
+
+const matterMethods = {
+    get: `${baseUrl}/api/matter/get/`,
+    getAll: `${baseUrl}/api/matter/getall`,
+    add: `${baseUrl}/api/matter/add`,
+    update: `${baseUrl}/api/matter/update/`,
+    delete: `${baseUrl}/api/matter/remove/`,
+}
+
 export default {
     authMethods,
-    studentMethods
+    studentMethods,
+    courseMethods,
+    matterMethods
 }

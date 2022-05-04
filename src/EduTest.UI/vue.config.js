@@ -11,9 +11,8 @@ module.exports = {
     host: 'localhost',
     port: 8080,
     https: {
-      key: fs.readFileSync(path.resolve(__dirname, 'cert\\localhost\\localhost.decrypted.key')),
-      cert: fs.readFileSync(path.resolve(__dirname, 'cert\\localhost\\localhostCert.crt')),
-      ca: fs.readFileSync(path.resolve(__dirname, 'cert\\localhost\\CA.pem'))
+      key: fs.readFileSync(path.resolve(__dirname, 'localhost-key.pem')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'localhost.pem'))
     }
   }
 }

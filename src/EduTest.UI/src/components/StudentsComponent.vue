@@ -1,5 +1,13 @@
 <template>
     <div class="container my-5">
+        <div class="row my-3">
+            <div class="col pt-1">
+                <input type="text" placeholder="Buscar estudiante" class="form-control" required>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary">Filtrar</button>
+            </div>
+        </div>
         <table class="table table-hover">
             <thead class="thead-dark">
                 <tr>
@@ -8,6 +16,8 @@
                     <th scope="col">Apellidos</th>
                     <th scope="col">Nacimiento</th>
                     <th scope="col">Correo</th>
+                    <th scope="col">Curso (ID)</th>
+                    <th scope="col">Materia (ID)</th>
                 </tr>
             </thead>
             <tbody>
@@ -15,8 +25,10 @@
                     <td scope="row">{{ student.id }}</td>
                     <td>{{ student.firstName }}</td>
                     <td>{{ student.lastName }}</td>
-                    <td>{{ student.dateOfBirth }}</td>
+                    <td>{{ changeFormat(new Date(student.dateOfBirth)) }}</td>
                     <td>{{ student.email }}</td>
+                    <td>{{ student.courseId !== undefined ? student.courseId : "Ninguno" }}</td>
+                    <td>{{ student.matterId !== undefined ? student.matterId : "Ninguno" }}</td>
                 </tr>
             </tbody>
         </table>
@@ -26,11 +38,13 @@
 <script>
     import axios from "axios"
     import routes from '@/services/ApiServices.js'
+    import moment from 'moment'
     export default {
         name: "StudentsComponent",
         data: function(){
             return {
-                studentList:null
+                studentList:null,
+                course:""
             }
         },
         mounted: function(){
@@ -48,6 +62,9 @@
         methods:{
             editMethod(id){
                 this.$router.push(`/editstudent/${id}`);
+            },
+            changeFormat(date){
+                return moment(date).format('DD-MM-YYYY');
             }
         }
     }
