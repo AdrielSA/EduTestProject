@@ -11,6 +11,7 @@ namespace EduTest.Services.Mapping
         {
             CreateMap<Student, StudentDto>()
                 .ForMember(e => e.DateOfBirth, c => c.MapFrom(x => x.DateOfBirth.ToString("yyyyy-MM-dd")))
+                .ForMember(e => e.EntryDate, c => c.MapFrom(x => x.CreationDate.ToString("yyyyy-MM-dd")))
                 .ReverseMap()
                 .ForMember(e => e.DateOfBirth, c => c.MapFrom(x => Convert.ToDateTime(x.DateOfBirth)))
                 .ForMember(p => p.Course, c => c.Ignore())

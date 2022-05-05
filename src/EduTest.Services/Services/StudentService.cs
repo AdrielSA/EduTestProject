@@ -72,8 +72,8 @@ namespace EduTest.Services.Services
             var prevPag = filter.PageNumber - 1 >= 1 && filter.PageNumber <= pagedStudent.TotalPages ? filter.PageNumber - 1 : 1;
             var metaData = new MetaData
             {
-                NextPageUrl = _uriService.GetPaginationUri(filter, nextPag, "/api/student").ToString(),
-                PreviousPageUrl = _uriService.GetPaginationUri(filter, prevPag, "/api/student").ToString(),
+                NextPageUrl = _uriService.GetPaginationUri(filter, nextPag, "/api/student/getall").ToString(),
+                PreviousPageUrl = _uriService.GetPaginationUri(filter, prevPag, "/api/student/getall").ToString(),
                 TotalCount = pagedStudent.TotalCount,
                 PageSize = pagedStudent.PageSize,
                 CurrentPage = pagedStudent.CurrentPage,

@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import StudentsView from '../views/StudentsView.vue'
 import EditStudentView from '../views/EditStudentView.vue'
+import AddStudentView from '../views/AddStudentView.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,12 @@ const routes = [
     path: '/students',
     name: 'students',
     component: StudentsView,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/addstudent',
+    name: 'addstudent',
+    component: AddStudentView,
     meta: { requiresAuth: true }
   },
   {

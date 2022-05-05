@@ -11,5 +11,6 @@ namespace EduTest.Services.DTOs
         public string Email { get; set; }
         public int? CourseId { get; set; }
         public int? MatterId { get; set; }
+        public string EntryDate { get; set; }
     }
 }

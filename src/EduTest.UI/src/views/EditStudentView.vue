@@ -2,9 +2,9 @@
     <div v-if="student">
         <HeaderComponentVue />
         <div class="mt-5 text-center">
-            <h3>ID del Estudiante: {{student.id}}</h3>
+            <h3>Editar Estudiante</h3>
         </div>
-        <div class="w-75 mx-auto m-5 border border-1 p-5">
+        <div class="w-50 mx-auto m-5 border border-1 p-5">
             <form @submit.prevent="updateMethod">
                 <div class="row mb-4">
                     <div class="col">
